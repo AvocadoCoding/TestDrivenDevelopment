@@ -19,7 +19,7 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 const render = require("./src/page-template.js");
 
 //create an array to add the team member data
-const teamMembers =[];
+var teamMembersArray =[];
 
 
 // TODO: Write Code to gather information about the development team members, and render the HTML file.
@@ -126,10 +126,63 @@ function buildTeam(teamMembers) {
 function init() {
     inquirer
     .prompt(questionsManager)
-    .then((data) => {
-            // pass data to employee class?
+    .then((answers) => {
+            // pass data to manager class
+            const managerObject = Manager(answers);
+
+            // push Object to array to store for input into render
+            teamMembersArray.push(managerObject);
+
+            // Ask user if they want to add another team member
+            additionalMemberEnquiry();
+    })
+};
+
+function additionalMemberEnquiry(){
+    inquirer
+    .prompt(questionsNextStep)
+    .then((answers) => {
+            // if function to control next step depending on user answer
+            if (answers= 'Engineer'){
+                addEngineer();
+            }else if(answers= 'Intern'){
+                addIntern();
+            }else{
+                buildTeam(teamMembersArray);
+            }
+
     })
 }
 
+function addEngineer(){
+    inquirer
+    .prompt(questionsEngineer)
+    .then((answers) => {
+            // pass data to manager class
+            const engineerObject = Engineer(answers);
+
+            // push Object to array to store for input into render
+            teamMembersArray.push(engineerObject);
+
+            // Ask user if they want to add another team member
+            additionalMemberEnquiry();
+    })
+};
+
+function addIntern(){
+    inquirer
+    .prompt(questionsIntern)
+    .then((answers) => {
+            // pass data to manager class
+            const internObject = Intern(answers);
+
+            // push Object to array to store for input into render
+            teamMembersArray.push(internObject);
+
+            // Ask user if they want to add another team member
+            additionalMemberEnquiry();
+    })
+};
+
 // function call to initialize program
-init()
+init();
