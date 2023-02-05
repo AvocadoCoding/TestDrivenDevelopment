@@ -13,6 +13,7 @@ const path = require("path");
 // fs is a Node standard library package for reading and writing files
 const fs = require("fs");
 
+// const __dirname = './outputHTMLfile/';
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
@@ -115,7 +116,6 @@ function buildTeam(teamMembers) {
     if (!fs.existsSync(OUTPUT_DIR)) {
       fs.mkdirSync(OUTPUT_DIR)
     }
-    const outputPath=`./${OUTPUT_DIR}/team.html`
 
     // writes file to outPath, with the render function inputting the data into the template literal
     fs.writeFileSync(outputPath, render(teamMembers), "utf-8");
