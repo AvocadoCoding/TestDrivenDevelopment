@@ -10,3 +10,5 @@ Once the user has entered all of the team inforamtion a 'team.html' file is crea
 ## Screenshot of created README file
 ![image](https://user-images.githubusercontent.com/116954089/216851368-7c48bf58-b80e-4cbf-9cf3-9ddd084d30e2.png)
 
+## Link to created README file 
+https://github.com/AvocadoCoding/TestDrivenDevelopment/blob/main/output/team.html
