@@ -128,7 +128,7 @@ function init() {
     .prompt(questionsManager)
     .then((answers) => {
             // pass data to manager class
-            const managerObject = Manager(answers);
+            const managerObject = new Manager(answers);
 
             // push Object to array to store for input into render
             teamMembersArray.push(managerObject);
@@ -159,7 +159,7 @@ function addEngineer(){
     .prompt(questionsEngineer)
     .then((answers) => {
             // pass data to manager class
-            const engineerObject = Engineer(answers);
+            const engineerObject = new Engineer(answers);
 
             // push Object to array to store for input into render
             teamMembersArray.push(engineerObject);
@@ -174,7 +174,7 @@ function addIntern(){
     .prompt(questionsIntern)
     .then((answers) => {
             // pass data to manager class
-            const internObject = Intern(answers);
+            const internObject = new Intern(answers);
 
             // push Object to array to store for input into render
             teamMembersArray.push(internObject);
