@@ -18,6 +18,9 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./src/page-template.js");
 
+//create an array to add the team member data
+const teamMembers =[];
+
 
 // TODO: Write Code to gather information about the development team members, and render the HTML file.
 
@@ -107,7 +110,7 @@ const questionsIntern = [
 
 
 // function to write HTML file
-function buildTeam() {
+function buildTeam(teamMembers) {
     // Create the output directory if the output path doesn't exist
     if (!fs.existsSync(OUTPUT_DIR)) {
       fs.mkdirSync(OUTPUT_DIR)
@@ -122,14 +125,9 @@ function buildTeam() {
 // function to initialize program
 function init() {
     inquirer
-    .prompt(questions)
+    .prompt(questionsManager)
     .then((data) => {
-  
-    const readmeName = `README.md`
-
-    const finalString = generateMarkdown(data);
-
-    buildTeam(readmeName, finalString)
+            // pass data to employee class?
     })
 }
 
