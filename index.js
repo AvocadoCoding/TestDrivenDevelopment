@@ -112,7 +112,11 @@ function buildTeam() {
     if (!fs.existsSync(OUTPUT_DIR)) {
       fs.mkdirSync(OUTPUT_DIR)
     }
+    const outputPath=`./${OUTPUT_DIR}/team.html`
+
+    // writes file to outPath, with the render function inputting the data into the template literal
     fs.writeFileSync(outputPath, render(teamMembers), "utf-8");
+    
   }
 
 // function to initialize program
