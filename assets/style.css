@@ -1,0 +1,39 @@
+body{
+    background-color: #d4c9c0;
+}
+
+h1{
+    font-size:xxx-large;
+}
+
+h2{
+    font-size:xx-large;
+}
+
+h3{
+    font-size:x-large;
+}
+
+.jumbotron {
+    background-color: #8ea8bd;
+    color: black;
+  }
+
+.team-area{
+    margin: 5px;
+    /* background-color: #6B654B; */
+}
+
+.employee-card{
+    margin: 5px;
+    width: 30%;
+}
+
+.card-header{
+    background-color: #a39b79;
+    color: black;
+}
+
+.card-body{
+    background-color: #8ea8bd;
+}
