@@ -54,9 +54,9 @@ const questionsManager = [
 // array of question for next step
 const questionsNextStep = [
       {
-        type: 'checkbox',
+        type: 'list',
         message: 'Which type of team member would you like to add?',
-        name: 'stack',
+        name: 'jobType',
         choices: ['Engineer', 'Intern', 'I dont want to add any more team members'],
       },
 ];
@@ -80,8 +80,8 @@ const questionsEngineer = [
       },
       {
         type: 'input',
-        message: 'What is the engineer\'\s office number?',
-        name: 'officeNumber',
+        message: 'What is the engineer\'\s gitHub?',
+        name: 'gitHub',
       },
 ];
 
@@ -104,8 +104,8 @@ const questionsIntern = [
       },
       {
         type: 'input',
-        message: 'What is the intern\'\s office number?',
-        name: 'officeNumber',
+        message: 'What is the intern\'\s school?',
+        name: 'school',
       },
 ];
 
@@ -127,8 +127,9 @@ function init() {
     inquirer
     .prompt(questionsManager)
     .then((answers) => {
+
             // pass data to manager class
-            const managerObject = new Manager(answers);
+            const managerObject = new Manager(answers.name, answers.EmployeeID, answers.eMail, answers.officeNumber);
 
             // push Object to array to store for input into render
             teamMembersArray.push(managerObject);
@@ -143,9 +144,9 @@ function additionalMemberEnquiry(){
     .prompt(questionsNextStep)
     .then((answers) => {
             // if function to control next step depending on user answer
-            if (answers= 'Engineer'){
+            if (answers.jobType=== 'Engineer'){
                 addEngineer();
-            }else if(answers= 'Intern'){
+            }else if(answers.jobType=== 'Intern'){
                 addIntern();
             }else{
                 buildTeam(teamMembersArray);
@@ -159,7 +160,7 @@ function addEngineer(){
     .prompt(questionsEngineer)
     .then((answers) => {
             // pass data to manager class
-            const engineerObject = new Engineer(answers);
+            const engineerObject = new Engineer(answers.name, answers.EmployeeID, answers.eMail, answers.gitHub);
 
             // push Object to array to store for input into render
             teamMembersArray.push(engineerObject);
@@ -174,7 +175,7 @@ function addIntern(){
     .prompt(questionsIntern)
     .then((answers) => {
             // pass data to manager class
-            const internObject = new Intern(answers);
+            const internObject = new Intern(answers.name, answers.EmployeeID, answers.eMail, answers.school);
 
             // push Object to array to store for input into render
             teamMembersArray.push(internObject);
