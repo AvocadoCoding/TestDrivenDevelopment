@@ -23,50 +23,88 @@ const render = require("./src/page-template.js");
 
 
 
-// array of questions for user
-const questions = [
+// array of questions for user- manager
+const questionsManager = [
     {
         type: 'input',
-        message: 'What is the project title?',
-        name: 'title',
+        message: 'What is the team manager\'\s name?',
+        name: 'name',
       },
       {
         type: 'input',
-        message: 'Please describe the project',
-        name: 'description',
+        message: 'What is the team manager\'\s Employee ID?',
+        name: 'EmployeeID',
       },
       {
         type: 'input',
-        message: 'What command should be run to install dependencies?',
-        name: 'installation',
+        message: 'What is the team manager\'\s Email address?',
+        name: 'eMail',
       },
       {
         type: 'input',
-        message: 'What knowledge does the user need to run the repository?',
-        name: 'usage',
+        message: 'What is the team manager\'\s office number?',
+        name: 'officeNumber',
       },
-      {
-        type: 'input',
-        message: 'Please enter contribution guidelines',
-        name: 'contribution',
-      },
+];
+
+// array of question for next step
+const questionsNextStep = [
       {
         type: 'checkbox',
-        message: 'Please choose your project license',
+        message: 'Which type of team member would you like to add?',
         name: 'stack',
-        choices: ['MIT', 'APACHE 2.0', 'GPL 3.0', 'BSD 3', 'None'],
+        choices: ['Engineer', 'Intern', 'I dont want to add any more team members'],
       },
-      {
-        type: 'input',
-        message: 'What is your GitHub URL?',
-        name: 'GitHubURL',
-      },
-      {
-        type: 'input',
-        message: 'What is your e-mail address?',
-        name: 'eMail',
-      }
 ];
+
+// array of questions for user- engineer
+const questionsEngineer = [
+    {
+        type: 'input',
+        message: 'What is the engineer\'\s name?',
+        name: 'name',
+      },
+      {
+        type: 'input',
+        message: 'What is the engineer\'\s Employee ID?',
+        name: 'EmployeeID',
+      },
+      {
+        type: 'input',
+        message: 'What is the engineer\'\s Email address?',
+        name: 'eMail',
+      },
+      {
+        type: 'input',
+        message: 'What is the engineer\'\s office number?',
+        name: 'officeNumber',
+      },
+];
+
+// array of questions for user- engineer
+const questionsIntern = [
+    {
+        type: 'input',
+        message: 'What is the intern\'\s name?',
+        name: 'name',
+      },
+      {
+        type: 'input',
+        message: 'What is the intern\'\s Employee ID?',
+        name: 'EmployeeID',
+      },
+      {
+        type: 'input',
+        message: 'What is the intern\'\s Email address?',
+        name: 'eMail',
+      },
+      {
+        type: 'input',
+        message: 'What is the intern\'\s office number?',
+        name: 'officeNumber',
+      },
+];
+
 
 // function to write HTML file
 function buildTeam() {
@@ -87,7 +125,7 @@ function init() {
 
     const finalString = generateMarkdown(data);
 
-    writeToFile(readmeName, finalString)
+    buildTeam(readmeName, finalString)
     })
 }
 
